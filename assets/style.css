@@ -4,14 +4,18 @@ body {
   background-color: #f9f9f9;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .kg-container {
+  width: 95%;
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -27,6 +31,7 @@ form {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 label {
@@ -42,6 +47,7 @@ select {
   margin-top: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 button {
@@ -53,13 +59,14 @@ button {
   background-color: #444;
   color: #fff;
   cursor: pointer;
+  width: 100%;
 }
 
 button:hover {
   background-color: #222;
 }
 
-/* Flex layout untuk 3 kolom */
+/* Flex layout */
 .flex-forms {
   display: flex;
   gap: 20px;
@@ -68,10 +75,10 @@ button:hover {
   justify-content: space-between;
 }
 
-/* Style masing-masing form box */
+/* Form box styling */
 .flex-forms form {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
   padding-top: 40px;
   position: relative;
   background: #fdfdfd;
@@ -80,7 +87,7 @@ button:hover {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-/* Header ala tab miring */
+/* Tab header style */
 .flex-forms form h2 {
   position: absolute;
   top: -20px;
@@ -92,9 +99,10 @@ button:hover {
   transform: rotate(-2deg);
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   border-radius: 5px;
+  margin: 0;
 }
 
-/* Warna tiap blok header */
+/* Warna header */
 #bmiForm h2 {
   background-color: #2e8b57;
 }
@@ -107,7 +115,7 @@ button:hover {
   background-color: #f9a825;
 }
 
-/* Result text */
+/* Hasil */
 #bmiResult,
 #giziResult,
 #statusGiziResult {
@@ -118,9 +126,32 @@ button:hover {
   border-radius: 5px;
 }
 
-/* Responsive layout */
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .flex-forms {
     flex-direction: column;
+    gap: 30px;
+  }
+
+  form {
+    padding: 20px 15px;
+  }
+
+  .kg-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .flex-forms form h2 {
+    font-size: 14px;
+    top: -18px;
+    left: 15px;
+    padding: 6px 16px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
   }
 }
+
