@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI & Gizi</title>
+    
+</head>
+<body>
+    <div class="kg-container">
+        <h2>Kalkulator BMI (IMT) Dewasa</h2>
+        <form id="bmiForm">
+            <label>Berat Badan (kg):</label>
+            <input type="number" id="bb" required>
+            <label>Tinggi Badan (cm):</label>
+            <input type="number" id="tb" required>
+            <button type="submit">Hitung BMI</button>
+            <p id="bmiResult"></p>
+        </form>
+
+        <hr>
+
+        <div class="flex-forms">
+            <form id="giziForm">
+                <h2>Status Gizi Anak (0–24 Bulan) - Panjang Badan per Umur (PB/U)</h2>
+                <label>Jenis Kelamin:</label>
+                <select id="jk" required>
+                    <option value="">Pilih</option>
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                </select>
+                <label>Usia (bulan):</label>
+                <input type="number" id="usia" required>
+                <label>Panjang Badan (cm):</label>
+                <input type="number" id="pb" required>
+                <button type="submit">Cek Status Gizi</button>
+                <p id="giziResult"></p>
+            </form>
+            
+
+            <form id="statusGiziForm">
+                <h2>Status Gizi Anak 0–60 Bulan - Berat Badan per Umur (BB/U)</h2>
+                <label>Usia (bulan):</label>
+                <input type="number" id="usia_anak" required>
+
+                <label>Jenis Kelamin:</label>
+                <select id="jk_anak" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                </select>
+
+                <label>Berat Badan (kg):</label>
+                <input type="number" id="berat_anak" step="0.1" required>
+
+                <button type="submit">Cek Status Gizi</button>
+                <p id="statusGiziResult"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- <script src="./assets/script.js"></script> --> 
+</body>
+</html>
