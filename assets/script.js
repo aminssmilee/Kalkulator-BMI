@@ -86,7 +86,6 @@ document.getElementById("statusGiziForm").addEventListener("submit", function (e
 
     let status = "Data tidak ditemukan";
 
-    // Tabel berat badan menurut umur (WHO)
     const standardBBU = {
         L: {
             0: [2.5, 3.3, 4.4],
@@ -110,19 +109,28 @@ document.getElementById("statusGiziForm").addEventListener("submit", function (e
 
     function getNearestAgeData(standar, usia) {
         const usiaKeys = Object.keys(standar).map(Number);
-        let closest = usiaKeys.reduce((a, b) => Math.abs(b - usia) < Math.abs(a - usia) ? b : a);
+        let closest = usiaKeys.reduce((a, b) =>
+            Math.abs(b - usia) < Math.abs(a - usia) ? b : a
+        );
         return standar[closest];
     }
 
     if (usia >= 0 && usia <= 60 && jk && standardBBU[jk]) {
         const [sdMinus2, median, sdPlus2] = getNearestAgeData(standardBBU[jk], usia);
 
-        if (berat < sdMinus2) status = "Berat Badan Sangat Kurang (Severely Underweight)";
-        else if (berat >= sdMinus2 && berat < median) status = "Berat Badan Kurang (Underweight)";
-        else if (berat >= median && berat <= sdPlus2) status = "Normal";
-        else status = "Risiko Berat Badan Lebih (Risk of Overweight)";
+        if (berat < sdMinus2)
+            status = "Berat Badan Kurang (Underweight)";
+        else if (berat >= sdMinus2 && berat < median)
+            status = "Berat Badan Kurang (Mild)";
+        else if (berat >= median && berat <= sdPlus2)
+            status = "Berat Badan Normal";
+        else if (berat > sdPlus2 && berat <= sdPlus2 + (sdPlus2 - median))
+            status = "Risiko Berat Badan Lebih";
+        else
+            status = "Obesitas";
     }
 
     document.getElementById("statusGiziResult").innerText = `Status Gizi Anak: ${status}`;
 });
+
 
